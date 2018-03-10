@@ -8,6 +8,6 @@ class pagesController extends Controller
 {
     public function pageAction($id)
     {
-        return $this->render('PageBundle:Default:pages/layout/pages.html.twig');
+        return $this->render('PagesBundle:Default:pages/layout/pages.html.twig');
     }
 }
