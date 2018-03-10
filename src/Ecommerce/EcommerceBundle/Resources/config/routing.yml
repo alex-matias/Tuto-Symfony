@@ -13,3 +13,7 @@ panier:
 livraison:
     path:     /panier/livraison
     defaults: { _controller: EcommerceBundle:panier:livraison}
+
+validation:
+    path:     /panier/validation
+    defaults: { _controller: EcommerceBundle:panier:validation}

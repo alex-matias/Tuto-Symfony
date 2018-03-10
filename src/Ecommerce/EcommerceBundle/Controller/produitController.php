@@ -16,8 +16,5 @@ class produitController extends Controller
         return $this->render('EcommerceBundle:Default:produits/layout/presentation.html.twig');
     }
 
-    public function validationAction()
-    {
-        return $this->render('EcommerceBundle:Default:produits/layout/validation.html.twig');
-    }
+
 }
