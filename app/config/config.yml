@@ -24,6 +24,12 @@ framework:
     fragments:       ~
     http_method_override: true
 
+#FOSUser Configuration
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Utilisateurs\UtilisateursBundle\Entity\Utilisateurs
+
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
