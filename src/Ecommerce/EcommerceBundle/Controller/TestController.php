@@ -4,15 +4,30 @@ namespace Ecommerce\EcommerceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Ecommerce\EcommerceBundle\Entity\Produits;
+use Ecommerce\EcommerceBundle\Form\testType;
 
 class TestController extends Controller
 {
-    public function ajoutAction()
+    public function testFormulaireAction()
     {
+        $form = $this->createForm(new testType());
+
+        if($this->get('request')->getMethod() == 'POST'){
+            $form->bind($this->get('request'));
+            var_dump($form->getData());
+            //echo($form['email']->getData());
+
+            $form = $this->createForm(new testType(),array('email'=>'test@devandclick.fr'));
+        }
+
+        return $this->render('EcommerceBundle:Default:test.html.twig', array('form' => $form->createView()));
+    }
+        /*
+
         //Déclaration du manager doctrine
         $em = $this->getDoctrine()->getManager();
 
-        /*
+
         //Création d'un produit
         $produit = new Produits();
         $produit->setCategorie("Legume");
@@ -37,10 +52,10 @@ class TestController extends Controller
 
         //Ajout tout ce qui a été persist a la BD
         $em->flush();
-        */
+
         $produits = $em->getRepository('EcommerceBundle:Produits')->findAll();
         return $this->render('EcommerceBundle:Default:test.html.twig', array('produits'=>$produits));
 
     }
-
+*/
 }
